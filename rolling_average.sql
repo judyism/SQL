@@ -1,7 +1,8 @@
 
 with cte as 
 (
-  select date(transaction_time) as tran_dt,
+  select 
+        date(transaction_time) as tran_dt,
         sum(transaction_amount) as tran_amt
   from transactions
   group by 1
