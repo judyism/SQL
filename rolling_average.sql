@@ -10,9 +10,10 @@ with cte as
 
 rolling as
 (
-  select tran_dt,
-  		tran_amt,
-  		avg(tran_amt) over(order by tran_dt rows between 2 preceding and current row) as rolling_sum
+  select 
+      tran_dt,
+      tran_amt,
+      avg(tran_amt) over(order by tran_dt rows between 2 preceding and current row) as rolling_sum
  from cte)
  
 select rolling_sum
